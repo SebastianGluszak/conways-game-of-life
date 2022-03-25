@@ -1,4 +1,4 @@
-Group name: Sebastian's Game of Life
+Group name: Life
 
 Group members: Sebastian Glusak (sglus2)
 
