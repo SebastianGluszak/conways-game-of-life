@@ -1,0 +1,10 @@
+/Users/sebastiangluszak/Documents/Code/cs128h/conways-game-of-life/game_of_life/target/debug/deps/cocoa-a48d4a4cbe802eb1.rmeta: /Users/sebastiangluszak/.cargo/registry/src/github.com-1ecc6299db9ec823/cocoa-0.23.0/src/lib.rs /Users/sebastiangluszak/.cargo/registry/src/github.com-1ecc6299db9ec823/cocoa-0.23.0/src/appkit.rs /Users/sebastiangluszak/.cargo/registry/src/github.com-1ecc6299db9ec823/cocoa-0.23.0/src/base.rs /Users/sebastiangluszak/.cargo/registry/src/github.com-1ecc6299db9ec823/cocoa-0.23.0/src/foundation.rs /Users/sebastiangluszak/.cargo/registry/src/github.com-1ecc6299db9ec823/cocoa-0.23.0/src/quartzcore.rs /Users/sebastiangluszak/.cargo/registry/src/github.com-1ecc6299db9ec823/cocoa-0.23.0/src/macros.rs
+
+/Users/sebastiangluszak/Documents/Code/cs128h/conways-game-of-life/game_of_life/target/debug/deps/cocoa-a48d4a4cbe802eb1.d: /Users/sebastiangluszak/.cargo/registry/src/github.com-1ecc6299db9ec823/cocoa-0.23.0/src/lib.rs /Users/sebastiangluszak/.cargo/registry/src/github.com-1ecc6299db9ec823/cocoa-0.23.0/src/appkit.rs /Users/sebastiangluszak/.cargo/registry/src/github.com-1ecc6299db9ec823/cocoa-0.23.0/src/base.rs /Users/sebastiangluszak/.cargo/registry/src/github.com-1ecc6299db9ec823/cocoa-0.23.0/src/foundation.rs /Users/sebastiangluszak/.cargo/registry/src/github.com-1ecc6299db9ec823/cocoa-0.23.0/src/quartzcore.rs /Users/sebastiangluszak/.cargo/registry/src/github.com-1ecc6299db9ec823/cocoa-0.23.0/src/macros.rs
+
+/Users/sebastiangluszak/.cargo/registry/src/github.com-1ecc6299db9ec823/cocoa-0.23.0/src/lib.rs:
+/Users/sebastiangluszak/.cargo/registry/src/github.com-1ecc6299db9ec823/cocoa-0.23.0/src/appkit.rs:
+/Users/sebastiangluszak/.cargo/registry/src/github.com-1ecc6299db9ec823/cocoa-0.23.0/src/base.rs:
+/Users/sebastiangluszak/.cargo/registry/src/github.com-1ecc6299db9ec823/cocoa-0.23.0/src/foundation.rs:
+/Users/sebastiangluszak/.cargo/registry/src/github.com-1ecc6299db9ec823/cocoa-0.23.0/src/quartzcore.rs:
+/Users/sebastiangluszak/.cargo/registry/src/github.com-1ecc6299db9ec823/cocoa-0.23.0/src/macros.rs:
