@@ -1,7 +1,6 @@
 mod utils;
 
 use wasm_bindgen::prelude::*;
-use std::{fmt, collections::btree_set::Union};
 
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
 // allocator.
@@ -31,6 +30,9 @@ pub struct Universe {
     width: u32,
     height: u32,
     cells: Vec<Cell>,
+    underpopulation: u8,
+    overpopulation: u8,
+    reproduction: u8,
 }
 
 #[wasm_bindgen]
@@ -38,17 +40,20 @@ impl Universe {
     pub fn new() -> Universe {
         let width = 64;
         let height = 64;
-        let cells = (0..width * height).map(|_i| Cell::Dead).collect();
+        let cells: Vec<Cell> = (0..width * height)
+            .map(|_i| Cell::Dead).collect();
+        let underpopulation = 2;
+        let overpopulation = 3;
+        let reproduction = 3;
 
             return Universe {
                 width,
                 height,
                 cells,
+                underpopulation,
+                overpopulation,
+                reproduction,
             };
-    }
-
-    pub fn render(&self) -> String {
-        return self.to_string();
     }
 
     pub fn tick(&mut self) {
@@ -59,10 +64,10 @@ impl Universe {
                 let cell = self.cells[idx];
                 let live_neighbors = self.live_neighbor_count(row, col);
                 let next_cell = match(cell, live_neighbors) {
-                    (Cell::Alive, x) if x < 2 => Cell::Dead,
-                    (Cell::Alive, 2) | (Cell::Alive, 3) => Cell::Alive,
-                    (Cell::Alive, x) if x > 3 => Cell::Dead,
-                    (Cell::Dead, 3) => Cell::Alive,
+                    (Cell::Alive, x)  if x >= self.underpopulation && x <= self.overpopulation => Cell::Alive,
+                    (Cell::Alive, x) if x < self.underpopulation => Cell::Dead,
+                    (Cell::Alive, x) if x > self.overpopulation => Cell::Dead,
+                    (Cell::Dead, x) if x == self.reproduction => Cell::Alive,
                     (otherwise, _) => otherwise,
                 };
                 next[idx] = next_cell;
@@ -97,6 +102,18 @@ impl Universe {
         let idx = self.get_index(row, column);
         self.cells[idx].toggle();
     }
+
+    pub fn set_overpopulation(&mut self, overpopulation: u8) {
+        self.overpopulation = overpopulation;
+    }
+
+    pub fn set_underpopulation(&mut self, underpopulation: u8) {
+        self.underpopulation = underpopulation;
+    }
+
+    pub fn set_reproduction(&mut self, reproduction: u8) {
+        self.reproduction = reproduction;
+    }
 }
 
 impl Universe {
@@ -129,18 +146,5 @@ impl Universe {
             let idx = self.get_index(row, col);
             self.cells[idx] = Cell::Alive;
         }
-    }
-}
-
-impl fmt::Display for Universe {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        for line in self.cells.as_slice().chunks(self.width as usize) {
-            for &cell in line {
-                let symbol = if cell == Cell::Dead {'◻'} else {'◼'};
-                write!(f, " {} ", symbol)?;
-            }
-            write!(f, "\n");
-        }
-        return Ok(());
     }
 }
